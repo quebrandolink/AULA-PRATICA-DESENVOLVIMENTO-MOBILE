@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,26 +8,11 @@
     tools:context=".MainActivity">
 
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="false"
-            android:contentDescription="@string/app_name"
-            android:cropToPadding="false"
-            android:scaleType="centerCrop"
-            android:src="@drawable/logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/textAppName"
@@ -34,28 +20,34 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/app_name"
-            android:textSize="32dp"
+            android:textSize="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgLogo"/>
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/app_name"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
+
 
         <TextView
             android:id="@+id/textTitle"
             style="@style/estiloTexto"
             android:layout_marginStart="16dp"
-            android:text="Faça seu pedido!"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textAppName" />
+            android:text="Faça seu pedido!" />
 
         <EditText
             android:id="@+id/nome"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:hint="Nome"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+            android:inputType="textPersonName" />
 
 
         <CheckBox
@@ -63,106 +55,92 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Bacon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nome" />
+            android:text="Bacon" />
 
         <CheckBox
             android:id="@+id/checkQueijo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Queijo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/checkBacon" />
+            android:text="Queijo" />
 
         <CheckBox
             android:id="@+id/checkOnion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Onion Rings"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/checkQueijo" />
+            android:text="Onion Rings" />
 
         <TextView
             android:id="@+id/textQuantidade"
-            android:layout_marginStart="16dp"
             android:text="Quantidade"
+            android:layout_gravity="center"
+            style="@style/estiloTexto" />
+
+        <TextView
+            android:id="@+id/txtQuantidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             style="@style/estiloTexto"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/checkOnion" />
+            android:textSize="24dp"
+            android:text="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
 
         <Button
             android:id="@+id/btnSubtrair"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:text=" - "
+            android:layout_height="wrap_content"
+            android:text="-"
             app:cornerRadius="4dp"
-            app:iconPadding="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textQuantidade" />
+            />
 
-        <TextView
-            android:id="@+id/txtQuantidade"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:gravity="center"
-            style="@style/estiloTexto"
-            android:text="1"
-            app:layout_constraintStart_toEndOf="@id/btnSubtrair"
-            app:layout_constraintTop_toBottomOf="@+id/textQuantidade" />
 
         <Button
             android:id="@+id/btnAdicionar"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_gravity="end"
             android:text="+"
-            app:cornerRadius="4dp"
-            app:layout_constraintStart_toEndOf="@id/txtQuantidade"
-            app:layout_constraintTop_toBottomOf="@+id/textQuantidade" />
+            app:cornerRadius="4dp" />
+
+    </LinearLayout>
 
         <TextView
             android:id="@+id/txtResume"
-            android:layout_width="0dp"
-            android:layout_marginStart="16dp"
-            android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
             android:text="Resumo do pedido"
-            style="@style/estiloTexto"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSubtrair" />
+            style="@style/estiloTexto" />
 
         <TextView
             android:id="@+id/txtResumeValue"
-            android:layout_width="0dp"
-            android:layout_marginStart="16dp"
-            android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
             android:text="R$ 0"
-            style="@style/estiloTexto"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtResume" />
+            android:textSize="24dp"
+            style="@style/estiloTexto" />
 
         <Button
             android:id="@+id/btnEnviarPedido"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="70dp"
             android:gravity="center"
             android:text="Enviar Pedido"
-            app:cornerRadius="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtResumeValue" />
+            app:cornerRadius="4dp" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </ScrollView>

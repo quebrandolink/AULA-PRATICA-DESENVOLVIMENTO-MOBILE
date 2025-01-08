@@ -1,5 +1,7 @@
 package com.example.hamburgueriaz;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -105,10 +107,16 @@ public class MainActivity extends AppCompatActivity {
                 "Quantidade: " + quantidade + "\n" +
                 "Preço Final: " + txtPrecoTotal.getText().toString();
 
-        new AlertDialog.Builder(this)
-                .setTitle("Resumo do Pedido")
-                .setMessage(resumoPedido)
-                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
-                .show();
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Pedido de " + nome);
+        intent.putExtra(Intent.EXTRA_TEXT, resumoPedido);
+
+        try {
+            startActivity(Intent.createChooser(intent, "Escolha o aplicativo de e-mail"));
+        } catch (Exception e) {
+            Toast.makeText(this, "Nenhum aplicativo de e-mail encontrado", Toast.LENGTH_SHORT).show();
+        }
     }
 }

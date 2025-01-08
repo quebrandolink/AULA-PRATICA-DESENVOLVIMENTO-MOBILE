@@ -6,20 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="32dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:title="HamburgueriaZ"
-            app:titleTextAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
-    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,28 +20,37 @@
             android:id="@+id/imgLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
             android:contentDescription="@string/app_name"
+            android:cropToPadding="false"
             android:scaleType="centerCrop"
             android:src="@drawable/logo"
-            app:layout_constraintBottom_toTopOf="@+id/textTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textTitle"
+            android:id="@+id/textAppName"
             style="@style/estiloTexto"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:text="@string/app_name"
+            android:textSize="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgLogo"/>
+
+        <TextView
+            android:id="@+id/textTitle"
+            style="@style/estiloTexto"
+            android:layout_marginStart="16dp"
             android:text="Faça seu pedido!"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+            app:layout_constraintTop_toBottomOf="@+id/textAppName" />
 
         <EditText
             android:id="@+id/nome"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_margin="16dp"
             android:layout_marginStart="16dp"
             android:hint="Nome"
             android:inputType="textPersonName"
@@ -90,7 +89,6 @@
         <TextView
             android:id="@+id/textQuantidade"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:text="Quantidade"
             style="@style/estiloTexto"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +99,6 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:text=" - "
             app:cornerRadius="4dp"
             app:iconPadding="0dp"
@@ -112,7 +109,6 @@
             android:id="@+id/txtQuantidade"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:gravity="center"
             style="@style/estiloTexto"
             android:text="1"
@@ -124,7 +120,6 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:text="+"
             app:cornerRadius="4dp"
             app:layout_constraintStart_toEndOf="@id/txtQuantidade"
@@ -134,7 +129,6 @@
             android:id="@+id/txtResume"
             android:layout_width="0dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:gravity="start"
             android:text="Resumo do pedido"
             style="@style/estiloTexto"
@@ -146,7 +140,6 @@
             android:id="@+id/txtResumeValue"
             android:layout_width="0dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:gravity="start"
             android:text="R$ 0"
             style="@style/estiloTexto"
@@ -156,18 +149,21 @@
 
         <Button
             android:id="@+id/btnEnviarPedido"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:gravity="start"
+            android:layout_marginBottom="70dp"
+            android:gravity="center"
             android:text="Enviar Pedido"
             app:cornerRadius="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtResumeValue" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

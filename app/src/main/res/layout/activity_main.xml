@@ -26,16 +26,26 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/textTitle"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:textSize="20sp"
-            android:text="Faça seu pedido!"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@+id/textTitle"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            style="@style/estiloTexto"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Faça seu pedido!"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
 
         <EditText
             android:id="@+id/nome"
@@ -79,12 +89,10 @@
 
         <TextView
             android:id="@+id/textQuantidade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Quantidade"
-            android:textSize="16sp"
+            style="@style/estiloTexto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/checkOnion" />
 
@@ -102,13 +110,12 @@
 
         <TextView
             android:id="@+id/txtQuantidade"
-            android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:gravity="center"
+            style="@style/estiloTexto"
             android:text="1"
-            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@id/btnSubtrair"
             app:layout_constraintTop_toBottomOf="@+id/textQuantidade" />
 
@@ -126,12 +133,11 @@
         <TextView
             android:id="@+id/txtResume"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:gravity="start"
             android:text="Resumo do pedido"
-            android:textSize="16sp"
+            style="@style/estiloTexto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnSubtrair" />
@@ -139,12 +145,11 @@
         <TextView
             android:id="@+id/txtResumeValue"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:gravity="start"
             android:text="R$ 0"
-            android:textSize="16sp"
+            style="@style/estiloTexto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtResume" />
